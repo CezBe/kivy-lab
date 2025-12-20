@@ -146,7 +146,6 @@ Zastosowanie:
 - automatyczne ładowanie danych do tabeli grafiku
 
 Dzięki temu:
-- `__init__` odpowiada tylko za budowę UI
 - dane są zawsze aktualne
 - unika się ponownego tworzenia widgetów
 
@@ -184,15 +183,6 @@ Tabela:
 
 ---
 
-### 5.2. Styl
-
-- jasne tło
-- czytelna typografia
-- spójna kolorystyka przycisków
-- brak plików `.kv`, całość w Pythonie
-
----
-
 ## 6. Rozszerzalność
 
 Aplikacja została zaprojektowana w sposób umożliwiający łatwą rozbudowę, m.in. o:
@@ -200,9 +190,7 @@ Aplikacja została zaprojektowana w sposób umożliwiający łatwą rozbudowę, 
 - eksport danych do CSV i JSON
 - blokadę anulowania przeszłych rezerwacji
 - sortowanie grafiku
-- paginację
 - autoryzację użytkowników
-- wersję mobilną
 
 ---
 
@@ -218,4 +206,5 @@ Uruchomienie:
 ```bash
 pip install -r requirements.txt
 python main.py
+
 

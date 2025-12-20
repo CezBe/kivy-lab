@@ -11,6 +11,7 @@ Aplikacja działa w oparciu o lokalną bazę danych i oferuje prosty, czytelny i
 ## 2. Funkcjonalności
 
 ### 2.1. Ekran główny (HomeScreen)
+<img width="802" height="600" alt="image" src="https://github.com/user-attachments/assets/de237b6d-3d58-45a3-ba65-c3d30f3f7d79" />
 
 - Wyświetlenie logo aplikacji
 - Przejście do:
@@ -20,6 +21,8 @@ Aplikacja działa w oparciu o lokalną bazę danych i oferuje prosty, czytelny i
 ---
 
 ### 2.2. Rezerwacja kortu (ReservationScreen)
+<img width="792" height="598" alt="image" src="https://github.com/user-attachments/assets/33fd0116-1424-424b-bf94-590c352b0cf5" />
+
 
 Formularz umożliwia wprowadzenie następujących danych:
 
@@ -36,7 +39,8 @@ Walidacje:
 - pola imię i nazwisko są wymagane
 - rezerwacja nie może rozpocząć się wcześniej niż godzinę od bieżącego czasu
 - klient może mieć maksymalnie dwie aktywne rezerwacje w danym tygodniu
-- sprawdzana jest dostępność terminu
+- sprawdzana jest dostępność terminu. Jeżeli rezerwacja jest niedostępna w podanej godzinie, zostanie zaproponowana inna tego samego dnia
+<img width="798" height="597" alt="image" src="https://github.com/user-attachments/assets/a979af73-dcae-48cb-8475-607977ef5011" />
 
 Po poprawnym utworzeniu rezerwacji:
 - użytkownik zostaje przeniesiony do ekranu głównego
@@ -47,6 +51,8 @@ Formularz jest automatycznie czyszczony przy każdym wejściu na ekran.
 ---
 
 ### 2.3. Grafik rezerwacji (ScheduleScreen)
+<img width="798" height="598" alt="image" src="https://github.com/user-attachments/assets/bc3ccf29-8935-4216-b281-7dceb96da83b" />
+
 
 Ekran umożliwia:
 
@@ -54,7 +60,39 @@ Ekran umożliwia:
 - filtrowanie rezerwacji na podstawie wybranego zakresu
 - wyświetlenie rezerwacji w formie tabeli
 - anulowanie pojedynczej rezerwacji
-- eksport danych (CSV / JSON – UI przygotowane)
+- eksport danych do
+    - JSON
+    ```json
+        {
+        "20.12.2025": [
+            {
+                "name": "a a",
+                "start_time": "14:00",
+                "end_time": "15:00"
+            },
+            {
+                "name": "a a",
+                "start_time": "15:00",
+                "end_time": "15:30"
+            }
+        ],
+        "21.12.2025": [
+            {
+                "name": "test test",
+                "start_time": "15:00",
+                "end_time": "16:00"
+            }
+        ],
+        "22.12.2025": []
+    }
+    ```
+    - CSV
+    ```csv
+    name,start_time,end_time
+    a a,20.12.2025 14:00,20.12.2025 15:00
+    a a,20.12.2025 15:00,20.12.2025 15:30
+    test test,21.12.2025 15:00,21.12.2025 16:00
+    ```
 
 Tabela zawiera kolumny:
 - Imię i nazwisko
@@ -108,7 +146,6 @@ Zastosowanie:
 - automatyczne ładowanie danych do tabeli grafiku
 
 Dzięki temu:
-- `__init__` odpowiada tylko za budowę UI
 - dane są zawsze aktualne
 - unika się ponownego tworzenia widgetów
 
@@ -146,15 +183,6 @@ Tabela:
 
 ---
 
-### 5.2. Styl
-
-- jasne tło
-- czytelna typografia
-- spójna kolorystyka przycisków
-- brak plików `.kv`, całość w Pythonie
-
----
-
 ## 6. Rozszerzalność
 
 Aplikacja została zaprojektowana w sposób umożliwiający łatwą rozbudowę, m.in. o:
@@ -162,9 +190,7 @@ Aplikacja została zaprojektowana w sposób umożliwiający łatwą rozbudowę, 
 - eksport danych do CSV i JSON
 - blokadę anulowania przeszłych rezerwacji
 - sortowanie grafiku
-- paginację
 - autoryzację użytkowników
-- wersję mobilną
 
 ---
 
@@ -178,4 +204,7 @@ Wymagania:
 Uruchomienie:
 
 ```bash
+pip install -r requirements.txt
 python main.py
+
+

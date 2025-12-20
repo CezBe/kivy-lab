@@ -80,8 +80,6 @@ def print_schedule():
     yesterday = today - utils.timedelta(days=1)
     tomorrow = today + utils.timedelta(days=1)
 
-    # from_date, to_date = utils.get_dates_range_from_user()
-
     for date in utils.get_dates_from_range(from_date=today, to_date=tomorrow):
         if date == today:
             operator = 'Today'

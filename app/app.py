@@ -53,11 +53,6 @@ class DefaultScreen(Screen):
         self.alert.height = 0
 
 
-class SecondScreen(DefaultScreen):
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
-
-
 class HomeScreen(DefaultScreen):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
@@ -361,10 +356,10 @@ class ScheduleScreen(DefaultScreen):
         match file_type:
             case "csv":
                 export_to_csv(date_from, date_to)
-                self.show_alert('Wyeksportowano do pliku csv')
+                self.show_alert('Wyeksportowano do pliku CSV')
             case "json":
                 export_to_json(date_from, date_to)
-                self.show_alert('Wyeksportowano do pliku json')
+                self.show_alert('Wyeksportowano do pliku JSON')
             case _: pass
 
 

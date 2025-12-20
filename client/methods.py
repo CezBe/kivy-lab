@@ -112,7 +112,7 @@ def export_to_json(from_date, to_date):
                     }
                     for reservation in (utils.Reservation(*x) for x in db.get_reservations_for_this_date(date))
                 ]
-            if db.get_reservations_for_this_date(date) is not None else []
+            if db.get_reservations_for_this_date(date) else []
             for date in utils.get_dates_from_range(from_date=from_date, to_date=to_date)
     }
 

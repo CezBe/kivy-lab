@@ -199,9 +199,7 @@ class ReservationScreen(DefaultScreen):
 
                 suggested_date = self.db.get_suggestion_available_time(reservation_start, duration_minutes)
                 if suggested_date:
-                    print(suggested_date)
                     suggested_dt = datetime.strptime(suggested_date[0], "%Y-%m-%d %H:%M")
-                    print(suggested_dt)
                     msg += f' Dostępna godzina {suggested_dt.strftime("%H:%M")}'
 
                 self.show_alert(msg, success=False)
